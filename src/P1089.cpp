@@ -14,7 +14,7 @@ int main() {
     for(int i = 0; i < 12; i++) {
         current += 300;
         if(budget[i] > current) {
-            cout << "-" << (i + 1);
+            cout << '-' << (i + 1) << endl;
             return 0;
         }
 

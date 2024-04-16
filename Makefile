@@ -16,6 +16,12 @@ TARGETS := $(SOURCES:$(SRC_DIR)/%.cpp=$(OUT_DIR)/%)
 $(OUT_DIR)/%: $(SRC_DIR)/%.cpp | $(OUT_DIR)
 	$(CXX) $(CXXFLAGS) $< -o $@
 
+# Pattern rule for building and running executables under a specific directory
+%:
+	@$(MAKE) $(OUT_DIR)/$*
+	@echo "------The Result is: ------"
+	@./$(OUT_DIR)/$* < $(TST_DIR)/$(TST_FILE)
+
 # Default rule
 all: $(TARGETS)
 
